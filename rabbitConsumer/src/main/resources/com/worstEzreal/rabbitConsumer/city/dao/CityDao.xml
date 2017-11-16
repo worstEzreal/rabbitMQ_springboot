@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.worstEzreal.rabbitConsumer.city.dao.CityDao">
+    <select id="getCityById" resultType="com.worstEzreal.rabbitConsumer.city.entity.City">
+        SELECT * FROM city WHERE id = #{id};
+    </select>
+</mapper>
