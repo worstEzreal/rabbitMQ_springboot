@@ -16,6 +16,9 @@ public class City implements Serializable {
     private String district;
     private int population;
 
+    public City() {
+    }
+
     public int getId() {
         return id;
     }

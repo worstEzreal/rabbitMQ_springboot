@@ -9,9 +9,12 @@ import com.worstEzreal.rabbitProducer.common.Result;
 import com.worstEzreal.rabbitProducer.common.utils.LocalHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 
@@ -32,6 +35,9 @@ public class CityController extends BaseController {
     @Autowired
     private CityService cityService;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     @RequestMapping("/name/{id}")
     public Result name(@PathVariable String id) throws IOException {
         String url = cityApiContext + id;
@@ -40,10 +46,20 @@ public class CityController extends BaseController {
         return new Result("0", "", city.getName());
     }
 
+    @RequestMapping("/name2/{id}")
+    public Result name2(@PathVariable String id) {
+        String url = cityApiContext + id;
+        City city = restTemplate.exchange(url, HttpMethod.POST, null, new ParameterizedTypeReference<Result<City>>() {
+        }).getBody().getContent();
+        return new Result("0", "", city.getName());
+    }
+
+
     @RequestMapping("hello")
-    public Result hello(){
+    public Result hello() {
         cityService.sendMsg();
         return new Result("", "发送成功", null);
     }
+
 
 }

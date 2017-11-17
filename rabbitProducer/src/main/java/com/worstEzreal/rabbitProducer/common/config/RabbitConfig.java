@@ -4,6 +4,7 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Desc
@@ -18,5 +19,10 @@ public class RabbitConfig {
 //    public Queue helloQueue() {
 //        return new Queue("hello");
 //    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
 }
