@@ -1,4 +1,4 @@
-package com.worstEzreal.rabbitProducer.common.utils;
+package com.worstEzreal.rabbitProducer.common.http;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

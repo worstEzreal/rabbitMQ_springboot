@@ -6,7 +6,7 @@ import com.worstEzreal.rabbitProducer.city.entity.City;
 import com.worstEzreal.rabbitProducer.city.service.CityService;
 import com.worstEzreal.rabbitProducer.common.BaseController;
 import com.worstEzreal.rabbitProducer.common.Result;
-import com.worstEzreal.rabbitProducer.common.utils.LocalHttpClient;
+import com.worstEzreal.rabbitProducer.common.http.LocalHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
